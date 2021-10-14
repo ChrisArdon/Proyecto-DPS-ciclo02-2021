@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Productos from "../pantallas/Productos";
 import Categorias from "../pantallas/Categorias";
-import AcercaDe from "../pantallas/AcercaDe";
+import Menu from "../pantallas/Menu";
 import Compras from '../pantallas/Compras';
 
 const Tab = createBottomTabNavigator();
@@ -68,13 +68,14 @@ export default function Navegacion(){
                     )
                 }} 
             />
-            <Tab.Screen name="acercaDe" component={AcercaDe} 
+            <Tab.Screen name="menu" component={Menu} 
+                
                 options={{
-                    title:'Acerca de',
+                    title:'Menú',
                     headerShown: false,
                     tabBarIcon: ({focused}) => (
                         <View>
-                            <Image source={require("../../assets/img/icons/IconoAcerca.png")} resizeMode="contain" 
+                            <Image source={require("../../assets/img/icons/IconoMenu.png")} resizeMode="contain"
                                 style={{
                                     ...styles.iconos,
                                     tintColor: focused ? "#F8F9FA" :"#6c757d"
@@ -85,6 +86,7 @@ export default function Navegacion(){
                 }} 
                 
             />
+            
         </Tab.Navigator>
     );
 }

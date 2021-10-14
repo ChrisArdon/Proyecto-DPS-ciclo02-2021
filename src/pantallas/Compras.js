@@ -13,11 +13,6 @@ function listaCompras({navigation}){
                 <Text style={styles.texto}>Mi Compra - 12/10/2021 08:00 am</Text>
                 </View>
             </TouchableHighlight>
-            <TouchableHighlight onPress={() => navigation.navigate("compra")}>
-                <View style={styles.itemCompra}>
-                <Text style={styles.texto}>Mi Compra - 09/10/2021 14:30 pm</Text>
-                </View>
-            </TouchableHighlight>
         </ScrollView>
     );
 }
@@ -49,35 +44,6 @@ function compra(){
 
                         <View>
                             <TouchableHighlight onPress={eliminar}><Image source={require('../../assets/img/icons/IconoCerrar.png')} resizeMode='contain' style={styles.icono}/></TouchableHighlight>
-                        </View>
-                    </View>
-                    
-                </View>
-
-                <View style={styles.itemLista}>
-                    <View style={styles.contenido}>
-                        <View>
-                            <Image source={require('../../assets/img/Chocolate.jpg')} style={styles.imagen}/>
-                            <Text style={styles.texto}>Chocolate</Text>
-                            <Text style={styles.texto}>$1.50</Text>
-                        </View>
-
-                        <View>
-                            <TouchableHighlight onPress={eliminar}><Image source={require('../../assets/img/icons/IconoCerrar.png')} resizeMode='contain' style={styles.icono}/></TouchableHighlight>
-                        </View>
-                    </View>
-                </View>
-
-                <View style={styles.itemLista}>
-                    <View style={styles.contenido}>
-                        <View>
-                            <Image source={require('../../assets/img/Eggs.jpg')} style={styles.imagen}/>
-                            <Text style={styles.textoContenido}>Huevos</Text>
-                            <Text style={styles.textoContenido}>$1.00</Text>
-                        </View>
-
-                        <View>
-                        <TouchableHighlight onPress={eliminar}><Image source={require('../../assets/img/icons/IconoCerrar.png')} resizeMode='contain' style={styles.icono}/></TouchableHighlight>
                         </View>
                     </View>
                 </View>
@@ -131,7 +97,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginTop: 5,
         marginHorizontal: 10,
-        color: '#212529'
+        color: '#000'
     },
 
     textoContenido: {
@@ -146,7 +112,7 @@ const styles = StyleSheet.create({
 
     itemCompra: {
         height: 40,
-        backgroundColor: '#F5BE6D',
+        backgroundColor: '#FBBE73',
         borderRadius: 5,
         marginHorizontal: 15,
         marginVertical: 10
@@ -201,7 +167,7 @@ const styles = StyleSheet.create({
         width: 190,
         borderRadius: 7,
         alignSelf: 'center',
-        marginVertical: 15
+        marginVertical: 60
     },
 
     botonEliminarCompraTexto: {
