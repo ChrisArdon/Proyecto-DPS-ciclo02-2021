@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableHighlight, ScrollView, requireNativeComponent } from "react-native";
+import { View, Text, StyleSheet, TouchableHighlight, ScrollView } from "react-native";
 
 export default function Categorias(){
     return(
@@ -12,7 +12,6 @@ export default function Categorias(){
             <TouchableHighlight>
                 <View style={styles.caja}>
                     <View style={styles.categoria}>
-                        <Image source={require('../../assets/img/icons/IconoBebidas.png')} style={styles.icono} resizeMode='contain' />
                         <Text style={styles.texto}>Bebidas</Text>
                     </View>
                 </View>
@@ -21,7 +20,6 @@ export default function Categorias(){
             <TouchableHighlight>
                 <View style={styles.caja}>
                     <View style={styles.categoria}>
-                        <Image source={require('../../assets/img/icons/IconoFrutasVegetales.png')} style={styles.icono} resizeMode='contain' />
                         <Text style={styles.texto}>Frutas y Verduras</Text>
                     </View>
                 </View>
@@ -30,7 +28,6 @@ export default function Categorias(){
             <TouchableHighlight>
                 <View style={styles.caja}>
                     <View style={styles.categoria}>
-                        <Image source={require('../../assets/img/icons/IconoDulces.png')} style={styles.icono} resizeMode='contain' />
                         <Text style={styles.texto}>Dulces</Text>
                     </View>
                 </View>
@@ -49,7 +46,7 @@ const styles = StyleSheet.create({
 
     texto: {
         fontSize: 20,
-        marginTop: 15,
+        marginTop: 5,
         marginLeft: 20,
         color: '#000'
     },  
@@ -69,17 +66,12 @@ const styles = StyleSheet.create({
     },
 
     categoria: {
-        height: 80,
+        height: 60,
         backgroundColor: '#E9ECEF',
         borderRadius: 5,
         margin: 5,
         flexDirection: 'row',
         paddingHorizontal: 20,
         paddingVertical: 10
-    },
-
-    icono: {
-        width: 50,
-        height: 50
     }
 })
