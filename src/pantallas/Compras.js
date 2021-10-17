@@ -25,6 +25,8 @@ function compra(){
     return(
         <ScrollView>
             <Text style={styles.subtitulo}>Mi Compra - 12/10/2021 08:00 am</Text>
+            
+            <Text style={styles.subtitulo}>Total: $2.00</Text>
 
             <TouchableHighlight>
                 <View style={styles.botonPago}>

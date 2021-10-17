@@ -9,8 +9,9 @@ function opcionesMenu({navigation}){
     return(
         <View style={styles.contenidoMenu}>
             <View style={styles.datosCuenta}>
-                <Text>[imagen]</Text>
-                <Text>[nombre]</Text>
+                <Image source={require('../../assets/img/profile.jpg')} style={styles.imagenPerfil} />
+                <Text style={styles.datosCuentaTexto}>Beatriz Smith</Text>
+                <Text style={styles.datosCuentaTexto}>beatriz.smith@email.com</Text>
             </View>
 
             <TouchableHighlight>
@@ -78,12 +79,27 @@ export default function Menu(){
 const styles = StyleSheet.create({
     contenidoMenu: {
         flex: 1,
-        backgroundColor: '#A3A3A4'
+        backgroundColor: '#bcbcbe'
     },
 
     datosCuenta: {
         alignSelf: 'center',
         marginVertical: 20
+    },
+
+    datosCuentaTexto: {
+        fontSize: 20, 
+        textAlign: 'center',
+        color: '#000',
+        marginTop: 5
+    },
+
+    imagenPerfil: {
+        width: 170, 
+        height: 170, 
+        alignSelf: 'center', 
+        borderRadius: 100, 
+        marginTop: 70
     },
 
     boton: {
