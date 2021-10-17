@@ -89,7 +89,7 @@ export default LoadingScene;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#5257F2',
+    backgroundColor: '#5267F2',
     justifyContent: 'center',
     alignItems: 'center',
   },
