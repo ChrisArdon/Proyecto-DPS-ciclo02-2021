@@ -1,7 +1,7 @@
 
 import React, {Component} from "react";
 import { View, Text } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+
 
 import {Router, Scene} from 'react-native-router-flux'
 /**
@@ -14,6 +14,8 @@ import Navegacion from "./src/navegacion/Navegacion";
 import Productos from "./src/pantallas/Productos";
 import NavegacionPantalla from "./src/pantallas/NavegacionPantalla";
 import react from "react";
+
+
 
 class App extends Component {
   render() {
@@ -38,5 +40,6 @@ class App extends Component {
 //     </NavigationContainer>
 //   );
 // }
+
 
 export default App;
