@@ -11,13 +11,15 @@ Julio Juan José Juarez Henríquez [JH030467] 👨‍💻
 
 Christian Rodrigo Ardón Rivas [AR160127] 👨‍💻
 
-# Enlaces 🔗
+# Enlaces   _🔗
 
 *Tablero en Trello: https://trello.com/b/IFF5PX8L/proyecto-dps-ciclo-02-2021*
 
 *Mockups Móvil: https://drive.google.com/file/d/1DissQ5WKTORtBRfxSwJm0MTjQJyFD8j9/view*
 
 *Mockups Web: https://drive.google.com/file/d/1ejNuL7crh-1bryltwXFeRV8JXGYXcBu9/view*
+
+*Manual de usuario: https://drive.google.com/file/d/1Q6I6vDQiNWpO4pfXStJ8H31aQy8RKXAS/view?usp=sharing*
 
 # Licencia 📃
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">licencia de Creative Commons Reconocimiento 4.0 Internacional</a>.
