@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { View, StyleSheet, TextInput } from "react-native";
-import {FormControl, Stack, Input, NativeBaseProvider, Heading, Box, VStack, Link, Button, Text, HStack} from 'native-base'
+import {FormControl, Stack, Input, NativeBaseProvider, Heading, Box, VStack, Link, Button, Text, HStack} from 'native-base';
+import {Actions} from 'react-native-router-flux';
 
+const cambiarPantalla = () => {
+    Actions.replace('NavP');
+}
 
 
 class PantallaAuth extends Component {
@@ -47,7 +51,7 @@ class PantallaAuth extends Component {
                                 Olvidaste tu contraseña?
                             </Link>
                         </FormControl>
-                        <Button mt='2' colorScheme="indigo" _text={{ color:'white' }} >
+                        <Button mt='2' colorScheme="indigo" _text={{ color:'white' }} onPress={cambiarPantalla}>
                             Entrar
                         </Button>
                         <HStack mt='6' justifyContent='center'>
