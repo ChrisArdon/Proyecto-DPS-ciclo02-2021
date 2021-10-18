@@ -47,7 +47,7 @@ class PantallaAuth extends Component {
                                 Olvidaste tu contraseña?
                             </Link>
                         </FormControl>
-                        <Button mt='2' colorScheme="indigo" _text={{ color:'white' }}>
+                        <Button mt='2' colorScheme="indigo" _text={{ color:'white' }} >
                             Entrar
                         </Button>
                         <HStack mt='6' justifyContent='center'>
