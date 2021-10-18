@@ -11,7 +11,7 @@ Julio Juan José Juarez Henríquez [JH030467] 👨‍💻
 
 Christian Rodrigo Ardón Rivas [AR160127] 👨‍💻
 
-# Enlaces 🔗
+# Enlaces   _🔗
 
 *Tablero en Trello: https://trello.com/b/IFF5PX8L/proyecto-dps-ciclo-02-2021*
 
