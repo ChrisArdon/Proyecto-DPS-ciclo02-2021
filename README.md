@@ -19,7 +19,9 @@ Christian Rodrigo Ardón Rivas [AR160127] 👨‍💻
 
 *Mockups Web: https://drive.google.com/file/d/1ejNuL7crh-1bryltwXFeRV8JXGYXcBu9/view*
 
-*Manual de usuario: https://drive.google.com/file/d/1Q6I6vDQiNWpO4pfXStJ8H31aQy8RKXAS/view?usp=sharing*
+*Manual de usuario y técnico: https://drive.google.com/drive/folders/1Oft4BaI3HcOJq0j9EAEeFywRAoZj_Cfg?usp=sharing*
+
+*Video: https://youtu.be/nFNFyNzclsQ*
 
 # Licencia 📃
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Este obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">licencia de Creative Commons Reconocimiento 4.0 Internacional</a>.

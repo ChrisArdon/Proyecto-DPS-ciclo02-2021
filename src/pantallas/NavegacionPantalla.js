@@ -5,8 +5,8 @@ import Navegacion from '../navegacion/Navegacion';
 
 export default function NavegacionPantalla(){
     return(
-        <NavigationContainer>
-            <Navegacion></Navegacion>
-        </NavigationContainer>
+        
+        <Navegacion></Navegacion>
+        
     );
 }
