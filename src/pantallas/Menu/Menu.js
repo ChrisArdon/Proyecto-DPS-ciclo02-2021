@@ -14,21 +14,21 @@ function opcionesMenu({navigation}){
     return(
         <View style={styles.contenidoMenu}>
             <View style={styles.datosCuenta}>
-                <Image source={require('../../assets/img/profile.jpg')} style={styles.imagenPerfil} />
+                <Image source={require('../../../assets/img/profile.jpg')} style={styles.imagenPerfil} />
                 <Text style={styles.datosCuentaTexto}>Beatriz Smith</Text>
                 <Text style={styles.datosCuentaTexto}>beatriz.smith@email.com</Text>
             </View>
 
             <TouchableHighlight onPress={cambiarPantalla}>
                 <View style={styles.boton}>
-                        <Image source={require('../../assets/img/icons/IconoSalir.png')} style={styles.icono} resizeMode='contain' />
+                        <Image source={require('../../../assets/img/icons/IconoSalir.png')} style={styles.icono} resizeMode='contain' />
                         <Text style={styles.textoBoton}>Cerrar sesión</Text>
                 </View>
             </TouchableHighlight>
 
             <TouchableHighlight onPress={() => navigation.navigate("acercaDe")}>
                 <View style={styles.boton}>
-                        <Image source={require('../../assets/img/icons/IconoAcerca.png')} style={styles.icono} resizeMode='contain' />
+                        <Image source={require('../../../assets/img/icons/IconoAcerca.png')} style={styles.icono} resizeMode='contain' />
                         <Text style={styles.textoBoton}>Acerca de</Text>
                 </View>
             </TouchableHighlight>
@@ -41,12 +41,12 @@ function acercaDe({navigation}){
         <View style={styles.contenidoAcerca}>
             <TouchableHighlight onPress={() => navigation.navigate("opcionesMenu")}>
                 <View style={styles.botonRegresarMenu}>
-                    <Image source={require('../../assets/img/icons/IconoRegresar.png')} style={styles.iconoRegresar} resizeMode='contain' />
+                    <Image source={require('../../../assets/img/icons/IconoRegresar.png')} style={styles.iconoRegresar} resizeMode='contain' />
                     <Text style={styles.textoBotonRegresar}>Regresar a menú</Text>
                 </View>
             </TouchableHighlight>
 
-            <Image source={require('../../assets/img/logo.png')} style={styles.logo} />
+            <Image source={require('../../../assets/img/logo.png')} style={styles.logo} />
             <Text style={styles.textoDescripcion}><Text style={{fontWeight: 'bold'}}>Tienda en línea</Text> es una aplicación creada con la intención de ayudar a pequeñas empresas a expandirse y tener una gestión de su negocio de forma factible. </Text>
 
             <View>
