@@ -44,7 +44,7 @@ function productosCategorias({navigation}){
         <View>
             <TouchableHighlight onPress={() => navigation.navigate("listaCategorias")}>
                 <View style={styles.botonRegresarMenu}>
-                    <Image source={require('../../assets/img/icons/IconoRegresar.png')} style={styles.iconoRegresar} resizeMode='contain' />
+                    <Image source={require('../../../assets/img/icons/IconoRegresar.png')} style={styles.iconoRegresar} resizeMode='contain' />
                     <Text style={styles.textoBotonRegresar}>Regresar</Text>
                 </View>
             </TouchableHighlight>
@@ -56,7 +56,7 @@ function productosCategorias({navigation}){
             <View style={styles.lista}>
                 <View style={styles.itemLista}>
                         <View>
-                            <Image source={require('../../assets/img/Strawberries.jpg')} style={styles.imagen}/>
+                            <Image source={require('../../../assets/img/Strawberries.jpg')} style={styles.imagen}/>
                             <Text style={styles.textoProducto}>Producto: Fresas</Text>
                             <Text style={styles.textoProducto}>Precio U.: $1.00</Text>
                             <Text style={styles.textoProducto}>Marca: Frutas Frescas</Text>

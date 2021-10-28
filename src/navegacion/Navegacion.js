@@ -3,10 +3,10 @@ import { View, Image, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Productos from "../pantallas/Productos";
-import Categorias from "../pantallas/Categorias";
-import Menu from "../pantallas/Menu";
-import Compras from '../pantallas/Compras';
+import Productos from "../pantallas/Productos/Productos";
+import Categorias from "../pantallas/Categorias/Categorias";
+import Menu from "../pantallas/Menu/Menu";
+import Compras from '../pantallas/Compras/Compras';
 
 const Tab = createBottomTabNavigator();
 

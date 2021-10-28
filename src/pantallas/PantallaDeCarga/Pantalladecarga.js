@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, Animated, Image, ActivityIndicator} from "react-native";
 import {Actions} from 'react-native-router-flux';
 
-import Logo from '../imagen/Log.png'
+import Logo from '../../imagen/Log.png'
 
 const switchtoAuth = () => {
     Actions.replace('auth');

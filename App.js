@@ -8,11 +8,11 @@ import {Router, Scene} from 'react-native-router-flux'
  * Componentes para rutas
  */
 
-import Pantalladecarga from "./src/pantallas/Pantalladecarga";
-import PantallaAuth from "./src/pantallas/PantallaAuth";
+import Pantalladecarga from "./src/pantallas/PantallaDeCarga/Pantalladecarga";
+import PantallaAuth from "./src/pantallas/PantallaAuth/PantallaAuth";
 import Navegacion from "./src/navegacion/Navegacion";
-import Productos from "./src/pantallas/Productos";
-import NavegacionPantalla from "./src/pantallas/NavegacionPantalla";
+import Productos from "./src/pantallas/Productos/Productos";
+import NavegacionPantalla from "./src/navegacion/NavegacionPantalla";
 import react from "react";
 
 

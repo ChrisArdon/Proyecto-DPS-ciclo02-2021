@@ -38,14 +38,14 @@ function compra(){
                 <View style={styles.itemLista}>
                     <View style={styles.contenido}>
                         <View>
-                            <Image source={require('../../assets/img/Strawberries.jpg')} style={styles.imagen}/>
+                            <Image source={require('../../../assets/img/Strawberries.jpg')} style={styles.imagen}/>
                             <Text style={styles.texto}>Fresas</Text>
                             <Text style={styles.texto}>$1.00</Text>
                             <Text style={styles.texto}>Cantidad: 2</Text>
                         </View>
 
                         <View>
-                            <TouchableHighlight onPress={eliminar}><Image source={require('../../assets/img/icons/IconoCerrar.png')} resizeMode='contain' style={styles.icono}/></TouchableHighlight>
+                            <TouchableHighlight onPress={eliminar}><Image source={require('../../../assets/img/icons/IconoCerrar.png')} resizeMode='contain' style={styles.icono}/></TouchableHighlight>
                         </View>
                     </View>
                 </View>
