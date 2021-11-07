@@ -5,6 +5,9 @@ import Auth from "../components/Auth";
 import firebase from "../utils/firebase";
 import 'firebase/auth';
 
+//import Productos from "./Productos/Productos";
+import Navegacion from "../navegacion/Navegacion";
+
 function btoa(data){return new base64(data,"binary").toString("base64");}
 function atob(data){return new base64(data,"base64").toString("binary");}
 
@@ -24,8 +27,8 @@ export default function auth2(){
     return(
         <>
         <StatusBar barStyle='light-content'></StatusBar>
-        <SafeAreaView>
-            <Auth></Auth>
+        <SafeAreaView style={styles.background}>
+            {user ? <Navegacion></Navegacion> : <Auth></Auth>}
         </SafeAreaView>
         </>
     )

@@ -1,4 +1,4 @@
-import react,{useState} from "react";
+import React,{useState} from "react";
 import {StyleSheet,Text,TouchableOpacity,TextInput,View,} from 'react-native';
 import {validateEmail} from '../utils/validations';
 import firebase from "../utils/firebase";

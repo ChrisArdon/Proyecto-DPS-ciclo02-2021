@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
         borderColor:'#BD305E',
     },
     btnText:{
-        color:'#8075F5',
+        color:'#FFFFFF',
         fontSize:18,
     },
     register:{
@@ -88,6 +88,6 @@ const styles = StyleSheet.create({
         marginBottom:10,
     },
     error:{
-        borderColor:'#8608A5',
+        borderColor:'#940c0c',
     },
 });
