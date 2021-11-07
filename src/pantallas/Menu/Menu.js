@@ -4,10 +4,12 @@ import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import {Actions} from 'react-native-router-flux';
 
+import firebase from "../../utils/firebase";
+
 const Stack = createStackNavigator();
 
 const cambiarPantalla = () => { //cambiar pantalla a login
-    Actions.replace('auth');
+    Actions.replace('auth2');
 }
 
 function opcionesMenu({navigation}){
@@ -19,7 +21,7 @@ function opcionesMenu({navigation}){
                 <Text style={styles.datosCuentaTexto}>beatriz.smith@email.com</Text>
             </View>
 
-            <TouchableHighlight onPress={cambiarPantalla}>
+            <TouchableHighlight onPress={() => firebase.auth().signOut()}>
                 <View style={styles.boton}>
                         <Image source={require('../../../assets/img/icons/IconoSalir.png')} style={styles.icono} resizeMode='contain' />
                         <Text style={styles.textoBoton}>Cerrar sesión</Text>

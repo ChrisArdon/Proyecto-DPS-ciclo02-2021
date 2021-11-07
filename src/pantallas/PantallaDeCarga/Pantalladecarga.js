@@ -5,7 +5,7 @@ import {Actions} from 'react-native-router-flux';
 import Logo from '../../imagen/Log.png'
 
 const switchtoAuth = () => {
-    Actions.replace('auth');
+    Actions.replace('auth2');
 }
 
 class LoadingScene extends Component {
@@ -75,7 +75,7 @@ export default LoadingScene;
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#fffff',
+        backgroundColor: '#C1D646',
         justifyContent:'center',
         alignItems:'center',
     },
