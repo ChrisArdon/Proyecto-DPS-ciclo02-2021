@@ -1,9 +1,28 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { View, Text, TextInput, Image, StyleSheet, TouchableHighlight, ScrollView, Alert } from "react-native";
+import firebase from "../../utils/firebase";
 
-import Compras from '../Compras/Compras';
 
 export default function Productos(){
+    const [productos, setProductos] = useState([])
+    
+    useEffect(() => {
+        firebase.firestore().collection('productos').onSnapshot(querySnapShot => {
+            const productos = [];
+            querySnapShot.docs.forEach(doc => {
+                const {nombre, categoria, precio, imagen} = doc.data();
+                productos.push({
+                    id: doc.id,
+                    nombre,
+                    categoria,
+                    precio,
+                    imagen
+                });
+            })
+            setProductos(productos)
+        })
+    })
+
     const nombre = "Fresa";
     const precioU = 1.00;
     const [count1, setCount1] = useState(0);
@@ -36,6 +55,29 @@ export default function Productos(){
                 <Image source={require("../../../assets/img/icons/IconoBuscar.png")} />
                 <TextInput placeholder="Búsqueda" style={styles.input} />
             </View>
+
+            {
+                productos.map(producto => {
+                    return(
+                        <View style={styles.itemLista}>
+                            <View style={styles.contenido}>
+                                <View>
+                                    <Image source={require('../../../assets/img/Chocolate.jpg')} style={styles.imagen}/>
+                                    <Text style={styles.texto}>{producto.nombre}</Text>
+                                    <Text style={styles.texto}>{producto.precio}</Text>
+                                </View>
+        
+                                <View>
+                                    <TouchableHighlight onPress={contadorMas2}><Image source={require('../../../assets/img/icons/IconoAgregar.png')} resizeMode='contain' style={[styles.iconoMas, styles.icono]}/></TouchableHighlight>
+                                    <Text style={styles.texto}>{count2 || null}</Text>
+                                    <TouchableHighlight onPress={contadorMenos2}><Image source={require('../../../assets/img/icons/IconoRestar.png')} resizeMode='contain' style={[styles.iconoMenos, styles.icono]}/></TouchableHighlight>
+                                    <TouchableHighlight onPress={() => validar()}><Image source={require('../../../assets/img/icons/IconoAgregarCompra.png')} resizeMode='contain' style={[styles.iconoCompra, styles.icono]}/></TouchableHighlight>
+                                </View>
+                            </View>
+                        </View>        
+                    )
+                })
+            }
 
 
             <View style={styles.lista}>

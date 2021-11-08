@@ -33,24 +33,27 @@ export default function LoginForm(props){
     };
     return(
         <>
+        <Text style={styles.title}>Accede a tu cuenta</Text>
+        
         <TextInput 
         style={[styles.input, formError.email && styles.error]}
         placeholder='Correo electronico'
-        placeholderTextColor='#B632BA'
+        //placeholderTextColor='#B632BA'
         onChange={(e) => onChange(e,'email')}></TextInput>
         <TextInput 
         style={[styles.input, formError.password && styles.error]}
         placeholder='Contraseña'
-        placeholderTextColor='#B632BA'
+        //placeholderTextColor='#B632BA'
         secureTextEntry={true}
         onChange={(e) => onChange(e,'password')}></TextInput>
 
-        <TouchableOpacity onPress={login}>
+        <TouchableOpacity onPress={login} style={styles.btnIniciarSesion}>
             <Text style={styles.btnText}>Iniciar Sesion</Text>
         </TouchableOpacity>
 
         <View style={styles.register}>
-            <TouchableOpacity onPress={changeForm}>
+            <Text style={styles.textRegistrar}>¿No tienes una cuenta?</Text>
+            <TouchableOpacity onPress={changeForm} style={styles.btnRegistrar}>
                 <Text style={styles.btnText}>Registrate</Text>
             </TouchableOpacity>
         </View>
@@ -68,26 +71,63 @@ function defaultValue(){
 const styles = StyleSheet.create({
     input:{
         height:50,
-        color:'#6A2FD3',
+        //color:'#6A2FD3',
         width:'80%',
         marginBottom:25,
-        backgroundColor:'#A06C91',
+        backgroundColor:'#fff',
         paddingHorizontal:20,
         borderRadius:50,
         fontSize:18,
-        borderWidth:1,
-        borderColor:'#BD305E',
+        //borderWidth:1,
+        //borderColor:'#474747',
     },
     btnText:{
-        color:'#FFFFFF',
+        color:'#fff',
         fontSize:18,
+        textAlign: 'center',
+        marginTop: 8,
+        fontWeight: 'bold'
     },
     register:{
         flex:1,
         justifyContent:'flex-end',
-        marginBottom:10,
+        marginBottom:30,
     },
     error:{
         borderColor:'#940c0c',
     },
+
+    btnRegistrar: {
+        width: 250,
+        height: 45,
+        backgroundColor: '#E09F3E',
+        marginVertical: 15,
+        paddingHorizontal: 15,
+        borderRadius: 7,
+        alignSelf: 'center'
+    },
+
+    btnIniciarSesion: {
+        width: 250,
+        height: 45,
+        backgroundColor: '#000',
+        marginVertical: 15,
+        paddingHorizontal: 15,
+        borderRadius: 7,
+        alignSelf: 'center'
+    },
+
+    textRegistrar: {
+        color: '#5E6798',
+        textAlign: 'center',
+        fontSize: 18
+    },
+
+    title: {
+        color: '#000',
+        textAlign: 'center',
+        fontSize: 25,
+        fontWeight: 'bold',
+        marginBottom: 15
+    }
 });

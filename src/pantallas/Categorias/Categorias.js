@@ -1,16 +1,47 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { View, Text, StyleSheet, TouchableHighlight, ScrollView, Image } from "react-native";
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
+import firebase from "../../utils/firebase";
 
 const Stack = createStackNavigator();
 
 function listaCategorias({navigation}){
+    const [categorias, setCategorias] = useState([])
+
+    useEffect(() => {
+        firebase.firestore().collection('categorias').onSnapshot(querySnapShot => {
+            const categorias = [];
+            querySnapShot.docs.forEach(doc => {
+                const [nombre] = doc.data();
+                categorias.push({
+                    id: doc.id,
+                    nombre
+                });
+            })
+            setCategorias(categorias)
+        })
+    })
+
     return(
         <ScrollView>
             <View>
                 <Text style={styles.titulo}>Categorías</Text>
             </View>
+
+            {
+                categorias.map(categoria => {
+                    return(
+                        <TouchableHighlight onPress={() => navigation.navigate("productosCategorias")}>
+                            <View style={styles.caja}>
+                                <View style={styles.categoria}>
+                                    <Text style={styles.texto}>{categoria.nombre}</Text>
+                                </View>
+                            </View>
+                        </TouchableHighlight>         
+                    )
+                })
+            }
 
             <TouchableHighlight onPress={() => navigation.navigate("productosCategorias")}>
                 <View style={styles.caja}>
