@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
 import { View, Text, TextInput, Image, StyleSheet, TouchableHighlight, ScrollView, Alert } from "react-native";
 import firebase from "../../utils/firebase";
+import 'firebase/firestore';
 
+firebase.firestore().settings({experimentalForceLongPolling:true});
 
 export default function Productos(){
     const [productos, setProductos] = useState([])

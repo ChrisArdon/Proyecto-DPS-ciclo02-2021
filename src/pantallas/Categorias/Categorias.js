@@ -3,25 +3,14 @@ import { View, Text, StyleSheet, TouchableHighlight, ScrollView, Image } from "r
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
 import firebase from "../../utils/firebase";
+import 'firebase/firestore';
 
 const Stack = createStackNavigator();
 
-function listaCategorias({navigation}){
-    const [categorias, setCategorias] = useState([])
+firebase.firestore().settings({experimentalForceLongPolling:true});
 
-    useEffect(() => {
-        firebase.firestore().collection('categorias').onSnapshot(querySnapShot => {
-            const categorias = [];
-            querySnapShot.docs.forEach(doc => {
-                const [nombre] = doc.data();
-                categorias.push({
-                    id: doc.id,
-                    nombre
-                });
-            })
-            setCategorias(categorias)
-        })
-    })
+function listaCategorias({navigation}){
+    
 
     return(
         <ScrollView>
@@ -99,6 +88,21 @@ function productosCategorias({navigation}){
 }
 
 export default function Categorias(){
+    const [categorias, setCategorias] = useState([])
+
+    useEffect(() => {
+        firebase.firestore().collection('categorias').onSnapshot(querySnapShot => {
+            const categorias = [];
+            querySnapShot.docs.forEach(doc => {
+                const [nombre] = doc.data();
+                categorias.push({
+                    id: doc.id,
+                    nombre
+                });
+            })
+            setCategorias(categorias)
+        })
+    })
     return(
         <Stack.Navigator>
             <Stack.Screen name="listaCategorias" component={listaCategorias}
