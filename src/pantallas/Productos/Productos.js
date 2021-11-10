@@ -27,7 +27,7 @@ export default function paquetes(){
     return(
         <ScrollView>
             <View>
-                <Text style={styles.titulo}>Paquetes</Text>
+                <Text style={styles.titulo}>Productos</Text>
             </View>
 
             <Text style={styles.subtitulo}>Selecciona uno de nuestros paquetes disponibles:</Text>
