@@ -1,48 +1,35 @@
 import React, {useEffect, useState} from "react";
 import { View, Text, StyleSheet, TouchableHighlight, ScrollView, Image } from "react-native";
 import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
 import firebase from "../../utils/firebase";
 import 'firebase/firestore';
 
-firebase.firestore().settings({experimentalForceLongPolling:true});
-
-
-export default function Categorias(){
-    const [categorias, setCategorias] = useState([])
-
-    useEffect(() => {
-        firebase.firestore().collection('categorias').onSnapshot(querySnapShot => {
-            const categorias = [];
-            querySnapShot.docs.forEach(doc => {
-                const {nombre} = doc.data();
-                categorias.push({
-                    id: doc.id,
-                    nombre
-                });
-            })
-            setCategorias(categorias)
-        })
-    })
+export default function productosCategorias({navigation}){
     return(
-        <ScrollView>
+        <View>
+            <TouchableHighlight onPress={() => navigation.navigate("listaCategorias")}>
+                <View style={styles.botonRegresarMenu}>
+                    <Image source={require('../../../assets/img/icons/IconoRegresar.png')} style={styles.iconoRegresar} resizeMode='contain' />
+                    <Text style={styles.textoBotonRegresar}>Regresar</Text>
+                </View>
+            </TouchableHighlight>
+
             <View>
-                <Text style={styles.titulo}>Categorías</Text>
+                <Text style={styles.titulo}>Frutas y Verduras</Text>
             </View>
 
-            {
-                categorias.map(categoria => {
-                    return(
+            <View style={styles.lista}>
+                <View style={styles.itemLista}>
                         <View>
-                            <View style={styles.caja}>
-                                <View style={styles.categoria}>
-                                    <Text style={styles.texto}>{categoria.nombre}</Text>
-                                </View>
-                            </View>
-                        </View>         
-                    )
-                })
-            }
-        </ScrollView>
+                            <Image source={require('../../../assets/img/Strawberries.jpg')} style={styles.imagen}/>
+                            <Text style={styles.textoProducto}>Producto: Fresas</Text>
+                            <Text style={styles.textoProducto}>Precio U.: $1.00</Text>
+                            <Text style={styles.textoProducto}>Marca: Frutas Frescas</Text>
+                        </View>
+                </View>
+            </View>
+        </View>
     );
 }
 

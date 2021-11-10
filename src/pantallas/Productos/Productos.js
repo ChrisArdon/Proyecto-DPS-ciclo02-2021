@@ -5,190 +5,59 @@ import 'firebase/firestore';
 
 firebase.firestore().settings({experimentalForceLongPolling:true});
 
-export default function Productos(){
-    const [productos, setProductos] = useState([])
+export default function paquetes(){
+    const [paquetes, setPaquetes] = useState([])
     
     useEffect(() => {
-        firebase.firestore().collection('productos').onSnapshot(querySnapShot => {
-            const productos = [];
+        firebase.firestore().collection('paquetes').onSnapshot(querySnapShot => {
+            const paquetes = [];
             querySnapShot.docs.forEach(doc => {
-                const {nombre, categoria, precio, imagen} = doc.data();
-                productos.push({
+                const {productos, precio} = doc.data();
+                paquetes.push({
                     id: doc.id,
-                    nombre,
-                    categoria,
-                    precio,
-                    imagen
+                    productos,
+                    precio
                 });
             })
-            setProductos(productos)
+            setPaquetes(paquetes)
         })
     })
 
-    const nombre = "Fresa";
-    const precioU = 1.00;
-    const [count1, setCount1] = useState(0);
-    const contadorMas = () => setCount1(count1 + 1);
-    const contadorMenos = () => setCount1(count1 - 1);
-
-    const [count2, setCount2] = useState(0);
-    const contadorMas2 = () => setCount2(count2 + 1);
-    const contadorMenos2 = () => setCount2(count2 - 1);
-
-    const [count3, setCount3] = useState(0);
-    const contadorMas3 = () => setCount3(count3 + 1);
-    const contadorMenos3 = () => setCount3(count3 - 1);
-
-    const validar = () => {
-        if(count1 == 0)
-        {
-            Alert.alert('Error', 'No se ha seleccionado una cantidad a comprar del producto', [{Text: 'OK'}]);
-            return;
-        }
-    }
 
     return(
         <ScrollView>
             <View>
-                <Text style={styles.titulo}>Productos</Text>
+                <Text style={styles.titulo}>Paquetes</Text>
             </View>
 
-            <View style={styles.busqueda}>
-                <Image source={require("../../../assets/img/icons/IconoBuscar.png")} />
-                <TextInput placeholder="Búsqueda" style={styles.input} />
-            </View>
+            <Text style={styles.subtitulo}>Selecciona uno de nuestros paquetes disponibles:</Text>
 
             {
-                productos.map(producto => {
+                paquetes.map(paquete => {
                     return(
-                        <View style={styles.itemLista}>
                             <View style={styles.contenido}>
                                 <View>
-                                    <Image source={require('../../../assets/img/Chocolate.jpg')} style={styles.imagen}/>
-                                    <Text style={styles.texto}>{producto.nombre}</Text>
-                                    <Text style={styles.texto}>{producto.precio}</Text>
+                                    <Image source={require('../../../assets/img/icons/IconoPaqueteWhite.png')} style={styles.imagen}/>
+                                    
                                 </View>
-        
+
                                 <View>
-                                    <TouchableHighlight onPress={contadorMas2}><Image source={require('../../../assets/img/icons/IconoAgregar.png')} resizeMode='contain' style={[styles.iconoMas, styles.icono]}/></TouchableHighlight>
-                                    <Text style={styles.texto}>{count2 || null}</Text>
-                                    <TouchableHighlight onPress={contadorMenos2}><Image source={require('../../../assets/img/icons/IconoRestar.png')} resizeMode='contain' style={[styles.iconoMenos, styles.icono]}/></TouchableHighlight>
-                                    <TouchableHighlight onPress={() => validar()}><Image source={require('../../../assets/img/icons/IconoAgregarCompra.png')} resizeMode='contain' style={[styles.iconoCompra, styles.icono]}/></TouchableHighlight>
+                                    <Text style={styles.textoTitle}>{paquete.productos}</Text>
+                                    <View style={styles.precio}>
+                                        <Text style={styles.texto}>${paquete.precio}</Text>
+                                        <TouchableHighlight>
+                                            <View style={styles.button}>
+                                                <Text style={styles.buttonText} >Comprar </Text>
+                                                <Image source={require('../../../assets/img/icons/IconoAgregarCompra.png')} resizeMode='contain' style={[styles.iconoCompra, styles.icono]}/>
+                                            </View>
+                                        </TouchableHighlight>
+                                    </View>
                                 </View>
-                            </View>
-                        </View>        
+                            </View>        
                     )
                 })
             }
-
-
-            <View style={styles.lista}>
-                <View style={styles.itemLista}>
-                    <View style={styles.contenido}>
-                        <View>
-                            <Image source={require('../../../assets/img/Strawberries.jpg')} style={styles.imagen}/>
-                            <Text style={styles.texto}>{nombre}</Text>
-                            <Text style={styles.texto}>${precioU}</Text>
-                        </View>
-
-                        <View>
-                            <TouchableHighlight onPress={contadorMas}><Image source={require('../../../assets/img/icons/IconoAgregar.png')} resizeMode='contain' style={[styles.iconoMas, styles.icono]}/></TouchableHighlight>
-                            <Text style={styles.texto}>{count1 || null}</Text>
-                            <TouchableHighlight onPress={contadorMenos}><Image source={require('../../../assets/img/icons/IconoRestar.png')} resizeMode='contain' style={[styles.iconoMenos, styles.icono]}/></TouchableHighlight>
-                            <TouchableHighlight onPress={() => validar()}><Image source={require('../../../assets/img/icons/IconoAgregarCompra.png')} resizeMode='contain' style={[styles.iconoCompra, styles.icono]}/></TouchableHighlight>
-                            
-                        </View>
-                    </View>
-                    
-                </View>
-
-                <View style={styles.itemLista}>
-                    <View style={styles.contenido}>
-                        <View>
-                            <Image source={require('../../../assets/img/Chocolate.jpg')} style={styles.imagen}/>
-                            <Text style={styles.texto}>Chocolate</Text>
-                            <Text style={styles.texto}>$1.50</Text>
-                        </View>
-
-                        <View>
-                            <TouchableHighlight onPress={contadorMas2}><Image source={require('../../../assets/img/icons/IconoAgregar.png')} resizeMode='contain' style={[styles.iconoMas, styles.icono]}/></TouchableHighlight>
-                            <Text style={styles.texto}>{count2 || null}</Text>
-                            <TouchableHighlight onPress={contadorMenos2}><Image source={require('../../../assets/img/icons/IconoRestar.png')} resizeMode='contain' style={[styles.iconoMenos, styles.icono]}/></TouchableHighlight>
-                            <TouchableHighlight onPress={() => validar()}><Image source={require('../../../assets/img/icons/IconoAgregarCompra.png')} resizeMode='contain' style={[styles.iconoCompra, styles.icono]}/></TouchableHighlight>
-                        </View>
-                    </View>
-                </View>
-
-                <View style={styles.itemLista}>
-                    <View style={styles.contenido}>
-                        <View>
-                            <Image source={require('../../../assets/img/Eggs.jpg')} style={styles.imagen}/>
-                            <Text style={styles.texto}>Huevos</Text>
-                            <Text style={styles.texto}>$1.00</Text>
-                        </View>
-
-                        <View>
-                            <TouchableHighlight onPress={contadorMas3}><Image source={require('../../../assets/img/icons/IconoAgregar.png')} resizeMode='contain' style={[styles.iconoMas, styles.icono]}/></TouchableHighlight>
-                            <Text style={styles.texto}>{count3 || null}</Text>
-                            <TouchableHighlight onPress={contadorMenos3}><Image source={require('../../../assets/img/icons/IconoRestar.png')} resizeMode='contain' style={[styles.iconoMenos, styles.icono]}/></TouchableHighlight>
-                            <TouchableHighlight onPress={() => validar()}><Image source={require('../../../assets/img/icons/IconoAgregarCompra.png')} resizeMode='contain' style={[styles.iconoCompra, styles.icono]}/></TouchableHighlight>
-                        </View>
-                    </View>
-                </View>
-
-                <View style={styles.itemLista}>
-                    <View style={styles.contenido}>
-                        <View>
-                            <Image source={require('../../../assets/img/leche.jpg')} style={styles.imagen}/>
-                            <Text style={styles.texto}>Leche</Text>
-                            <Text style={styles.texto}>$2.75</Text>
-                        </View>
-
-                        <View>
-                            <TouchableHighlight onPress={contadorMas3}><Image source={require('../../../assets/img/icons/IconoAgregar.png')} resizeMode='contain' style={[styles.iconoMas, styles.icono]}/></TouchableHighlight>
-                            <Text style={styles.texto}>{count3 || null}</Text>
-                            <TouchableHighlight onPress={contadorMenos3}><Image source={require('../../../assets/img/icons/IconoRestar.png')} resizeMode='contain' style={[styles.iconoMenos, styles.icono]}/></TouchableHighlight>
-                            <TouchableHighlight onPress={() => validar()}><Image source={require('../../../assets/img/icons/IconoAgregarCompra.png')} resizeMode='contain' style={[styles.iconoCompra, styles.icono]}/></TouchableHighlight>
-                        </View>
-                    </View>
-                </View>
-
-                <View style={styles.itemLista}>
-                    <View style={styles.contenido}>
-                        <View>
-                            <Image source={require('../../../assets/img/fanta.jpg')} style={styles.imagen}/>
-                            <Text style={styles.texto}>Fanta</Text>
-                            <Text style={styles.texto}>$0.60</Text>
-                        </View>
-
-                        <View>
-                            <TouchableHighlight onPress={contadorMas3}><Image source={require('../../../assets/img/icons/IconoAgregar.png')} resizeMode='contain' style={[styles.iconoMas, styles.icono]}/></TouchableHighlight>
-                            <Text style={styles.texto}>{count3 || null}</Text>
-                            <TouchableHighlight onPress={contadorMenos3}><Image source={require('../../../assets/img/icons/IconoRestar.png')} resizeMode='contain' style={[styles.iconoMenos, styles.icono]}/></TouchableHighlight>
-                            <TouchableHighlight onPress={() => validar()}><Image source={require('../../../assets/img/icons/IconoAgregarCompra.png')} resizeMode='contain' style={[styles.iconoCompra, styles.icono]}/></TouchableHighlight>
-                        </View>
-                    </View>
-                </View>
-
-                <View style={styles.itemLista}>
-                    <View style={styles.contenido}>
-                        <View>
-                            <Image source={require('../../../assets/img/dulce1.png')} style={styles.imagen}/>
-                            <Text style={styles.texto}>Chiclin</Text>
-                            <Text style={styles.texto}>$0.10</Text>
-                        </View>
-
-                        <View>
-                            <TouchableHighlight onPress={contadorMas3}><Image source={require('../../../assets/img/icons/IconoAgregar.png')} resizeMode='contain' style={[styles.iconoMas, styles.icono]}/></TouchableHighlight>
-                            <Text style={styles.texto}>{count3 || null}</Text>
-                            <TouchableHighlight onPress={contadorMenos3}><Image source={require('../../../assets/img/icons/IconoRestar.png')} resizeMode='contain' style={[styles.iconoMenos, styles.icono]}/></TouchableHighlight>
-                            <TouchableHighlight onPress={() => validar()}><Image source={require('../../../assets/img/icons/IconoAgregarCompra.png')} resizeMode='contain' style={[styles.iconoCompra, styles.icono]}/></TouchableHighlight>
-                        </View>
-                    </View>
-                </View>
-
-            </View>
-
+           
         </ScrollView>
         
     );
@@ -198,64 +67,59 @@ const styles = StyleSheet.create({
     titulo: {
         fontSize: 25,
         marginLeft: 20,
-        marginVertical: 15,
+        marginTop: 25,
+        marginBottom: 10,
         color: '#000'
     },
 
-    busqueda: {
-        flexDirection: 'row',
-        marginHorizontal: 30,
-        marginTop: 10
-    },
-
-    input: {
-        height: 40,
-        width: 300,
-        borderTopColor: 'transparent',
-        borderRightColor: 'transparent',
-        borderLeftColor: 'transparent',
-        borderBottomColor: '#000',
-        borderWidth: 1,
-        marginBottom: 7,
-        padding: 10,
-        fontSize: 18
-      },
-
-    lista: {
-        flexBasis: '49%',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-evenly'
-    },
-
-    itemLista: {
-        marginTop: 25
+    subtitulo: {
+        marginLeft: 20,
+        fontSize: 20,
+        color: '#000'
     },
 
     imagen: {
-        width: 120,
-        height: 120,
-        marginRight: 10
+        width: 70,
+        height: 70,
+        marginRight: 10,
+        marginTop: 20,
+        tintColor: '#232A43'
     },
 
-    icono: {
+    iconoCompra: { 
+        tintColor: '#E9ECEF', 
+        marginTop: 2,
         width: 30,
-        height: 30,
-        
+        height: 30
     },
 
-    iconoMas: { tintColor: '#343A40' },
-    iconoMenos: { tintColor: '#6C757D' },
-    iconoCompra: { tintColor: '#E09F3E', marginTop: 10 },
+    textoTitle: {
+        textAlign: 'center',
+        fontSize: 20,
+        width: 250,
+        color: '#000'
+    },  
 
     texto: {
-        textAlign: 'center',
-        fontSize: 15,
-        color: '#000'
+        alignSelf: 'center',
+        fontSize: 18,
+        color: '#000',
+        marginLeft: 20,
+        marginTop: 6,
     },
 
     contenido: {
-        flexDirection: 'row'
+        height: 135,
+        backgroundColor: '#EFEFEF',
+        borderRadius: 5,
+        marginHorizontal: 15,
+        flexDirection: 'row',
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        marginTop: 25,
+        borderStyle: 'solid',
+        borderWidth: 2,
+        borderColor: '#000'
     },
 
     botonCompra: {
@@ -270,5 +134,30 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 15
+    },
+
+    button: {
+        backgroundColor: '#E09F3E',
+        width: 130,
+        height: 38,
+        flexDirection: 'row',
+        borderRadius: 5,
+        marginTop: 10,
+        marginLeft: 50
+    },
+
+    buttonText: {
+        fontSize: 18,
+        marginTop: 6,
+        marginLeft: 10,
+        color: '#E9ECEF',
+        fontWeight: 'bold',
+        marginRight: 7,
+        
+    },
+    
+    precio: {
+        flexDirection: 'row',
+        marginTop: 10
     }
 })

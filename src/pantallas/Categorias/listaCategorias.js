@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from "react";
 import { View, Text, StyleSheet, TouchableHighlight, ScrollView, Image } from "react-native";
 import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
 import firebase from "../../utils/firebase";
 import 'firebase/firestore';
 
-firebase.firestore().settings({experimentalForceLongPolling:true});
-
-
-export default function Categorias(){
+export default function listaCategorias({navigation}){
     const [categorias, setCategorias] = useState([])
 
     useEffect(() => {
@@ -32,16 +30,40 @@ export default function Categorias(){
             {
                 categorias.map(categoria => {
                     return(
-                        <View>
+                        <TouchableHighlight onPress={() => navigation.navigate("productosCategorias")}>
                             <View style={styles.caja}>
                                 <View style={styles.categoria}>
                                     <Text style={styles.texto}>{categoria.nombre}</Text>
                                 </View>
                             </View>
-                        </View>         
+                        </TouchableHighlight>         
                     )
                 })
             }
+
+            <TouchableHighlight onPress={() => navigation.navigate("productosCategorias")}>
+                <View style={styles.caja}>
+                    <View style={styles.categoria}>
+                        <Text style={styles.texto}>Frutas y Verduras</Text>
+                    </View>
+                </View>
+            </TouchableHighlight>
+
+            <TouchableHighlight>
+                <View style={styles.caja}>
+                    <View style={styles.categoria}>
+                        <Text style={styles.texto}>Bebidas</Text>
+                    </View>
+                </View>
+            </TouchableHighlight>
+
+            <TouchableHighlight>
+                <View style={styles.caja}>
+                    <View style={styles.categoria}>
+                        <Text style={styles.texto}>Dulces</Text>
+                    </View>
+                </View>
+            </TouchableHighlight>
         </ScrollView>
     );
 }
