@@ -26,12 +26,12 @@ const styles = StyleSheet.create({
     view:{
         flex:1,
         alignItems:'center',
-        backgroundColor:'#43A720',
+        //backgroundColor:'#43A720',
     },
     logo:{
-        width:'80%',
-        height:140,
-        marginTop:50,
-        marginBottom:50,
+        width: 140,
+        height: 140,
+        marginTop:70,
+        marginBottom:10,
     },
 });

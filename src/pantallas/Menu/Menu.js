@@ -16,9 +16,8 @@ function opcionesMenu({navigation}){
     return(
         <View style={styles.contenidoMenu}>
             <View style={styles.datosCuenta}>
-                <Image source={require('../../../assets/img/profile.jpg')} style={styles.imagenPerfil} />
-                <Text style={styles.datosCuentaTexto}>Beatriz Smith</Text>
-                <Text style={styles.datosCuentaTexto}>beatriz.smith@email.com</Text>
+                <Image source={require('../../../assets/img/logo.png')} style={styles.imagenPerfil} />
+                
             </View>
 
             <TouchableHighlight onPress={() => firebase.auth().signOut()}>
@@ -106,7 +105,7 @@ const styles = StyleSheet.create({
         height: 170, 
         alignSelf: 'center', 
         borderRadius: 100, 
-        marginTop: 70
+        marginTop: 100
     },
 
     boton: {
@@ -194,7 +193,7 @@ const styles = StyleSheet.create({
     },
 
     derechosReservados: {
-        marginTop: 90,
+        marginTop: 50,
         textAlign: 'center'
     }
 })

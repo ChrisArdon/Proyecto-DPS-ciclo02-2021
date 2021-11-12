@@ -36,7 +36,7 @@ export default function auth2(){
 
 const styles = StyleSheet.create({
     background:{
-        backgroundColor:'#A9BBF8',
+        backgroundColor:'#DDDDDD',
         height:'100%',
     },
 });
