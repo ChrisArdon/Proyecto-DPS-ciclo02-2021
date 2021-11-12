@@ -21,7 +21,7 @@ Christian Rodrigo Ardón Rivas [AR160127] 👨‍💻
 
 *Manual de usuario:https://drive.google.com/file/d/1Q6I6vDQiNWpO4pfXStJ8H31aQy8RKXAS/view* 
 
-*Manual técnico: https://drive.google.com/file/d/1WFhX5vbcRKXDEerXrAQwDgCBQJsThdT1/view*
+*Manual técnico: https://drive.google.com/file/d/1JUYY7-HyIWncnqZ72jZ2sCA8jJFjTyNk/view?usp=sharing*
 
 *Video: https://youtu.be/nFNFyNzclsQ*
 
